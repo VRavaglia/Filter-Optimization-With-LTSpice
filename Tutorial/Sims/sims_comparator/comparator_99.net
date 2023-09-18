@@ -1,0 +1,18 @@
+* C:\Users\victo\Desktop\GA-with-LTSpice-Tutorial\Tutorial\Sims\sims_comparator\comparator_99.asc
+M1 Vout N001 0 0 NMOS l={L1} w={W1} ad={W1*L1} as={W1*L1} pd={2*W1+2*L1} ps={2*W1+2*L1} m=1
+M2 Vdd Vin Vout Vdd PMOS l={L2} w={W2} ad={W2*L2} as={W2*L2} pd={2*W1+2*L1} ps={2*W1+2*L1} m=1
+V1 Vdd 0 1.8
+V2 N001 0 {Vcomp}
+V3 Vin 0
+.model NMOS NMOS
+.model PMOS PMOS
+.lib D:\Documents\LTspiceXVII\lib\cmp\standard.mos
+.param W1=2.9u
+.param W2=2.6u
+.param Vcomp=648.0m
+.param L1=1.7u
+.param L2=2.1u
+.dc V3 0 1.8 0.01
+* All parameters that will be optimized\nshould be listed in tables\nwith arbitrary values.
+.backanno
+.end

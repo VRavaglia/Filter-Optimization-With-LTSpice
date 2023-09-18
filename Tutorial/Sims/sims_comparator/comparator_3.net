@@ -1,0 +1,19 @@
+* C:\Users\victo\Desktop\GA-with-LTSpice-Tutorial\Tutorial\Sims\sims_comparator\comparator_3.asc
+M1 Vout N001 0 0 NMOS l={L1} w={W1} ad={W1*L1} as={W1*L1} pd={2*W1+2*L1} ps={2*W1+2*L1} m=1
+M2 Vdd Vin Vout Vdd PMOS l={L2} w={W2} ad={W2*L2} as={W2*L2} pd={2*W1+2*L1} ps={2*W1+2*L1} m=1
+V1 Vdd 0 1.8
+V2 N001 0 {Vcomp}
+V3 Vin 0
+.model NMOS NMOS
+.model PMOS PMOS
+.lib D:\Documents\LTspiceXVII\lib\cmp\standard.mos
+.step param n list 1 2 3 4 5 6 7 8 9 10
+.param W1=table(n,1,3.4u,2,3.4u,3,3.4u,4,3.4u,5,3.4u,6,3.4u,7,3.4u,8,3.4u,9,3.4u,10,3.4u)
+.param W2=table(n,1,3.1u,2,3.0u,3,3.1u,4,3.0u,5,3.1u,6,3.0u,7,3.3u,8,3.1u,9,3.1u,10,3.1u)
+.param Vcomp=table(n,1,946.0m,2,946.0m,3,1.1,4,928.0m,5,965.0m,6,946.0m,7,946.0m,8,965.0m,9,946.0m,10,928.0m)
+.param L1=table(n,1,2.7u,2,2.7u,3,2.7u,4,2.7u,5,2.7u,6,2.7u,7,2.8u,8,2.7u,9,2.7u,10,2.8u)
+.param L2=table(n,1,3.8u,2,3.8u,3,3.8u,4,3.8u,5,3.8u,6,3.6u,7,3.8u,8,3.7u,9,3.7u,10,3.8u)
+.dc V3 0 1.8 0.01
+* All parameters that will be optimized\nshould be listed in tables\nwith arbitrary values.
+.backanno
+.end
